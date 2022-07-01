@@ -8,6 +8,14 @@ exports.index = (req, res) => {
 }
 
 //create a new task
+/*
+_____IMPLEMENTATION___
+POST METHOD
+{
+    "title": "Task 2 now",
+    "description": "I am starting my new task as the first."
+}
+*/
 exports.addTask = (req, res) => {
     //check if the description is not empty
     if (req.body.description.length < 1) {
@@ -37,6 +45,11 @@ exports.addTask = (req, res) => {
 }
 
 //fetch all tasks
+/*
+_____IMPLEMENTATION___
+GET METHOD
+
+*/
 exports.fetchTasks = (req, res) => {
     Task.find() //fetch tasks
         .then(tasks => {
@@ -49,6 +62,11 @@ exports.fetchTasks = (req, res) => {
 }
 
 //fetch a task
+/*
+_____IMPLEMENTATION___
+GET METHOD
+Unique Parameter: id
+*/
 exports.fetchTask = (req, res) => {
     Task.findById(req.params.id) //find task by ID
         .then(taskData => {
@@ -71,6 +89,14 @@ exports.fetchTask = (req, res) => {
 }
 
 //update a task
+/*
+_____IMPLEMENTATION___
+POST METHOD
+{
+    "title": "Task 2 now",
+    "description": "I am starting my new task as the first."
+}
+*/
 exports.updateTask = (req, res) => {
     console.log("delete todo")
     //check if the description is not empty
@@ -112,6 +138,11 @@ exports.updateTask = (req, res) => {
 }
 
 //delete a task
+/*
+_____IMPLEMENTATION___
+DELETE METHOD
+Unique Parameter: id
+*/
 exports.deleteTask = (req, res) => {
     Task.findByIdAndRemove(req.params.id) //find task by ID
         .then(taskToDel => {

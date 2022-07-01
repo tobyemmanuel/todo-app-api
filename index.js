@@ -17,20 +17,20 @@ app.use(express.urlencoded({
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-// Connecting to the database
+// Connect to the database
 mongoose.connect('mongodb://localhost:27017/todo-app-api', {
   useNewUrlParser: true
 }).then(() => {
-  console.log("Successfully connected to the database");
+  console.log("Successfully connected to the database"); // log connection success message
 }).catch(err => {
-  console.log('Could not connect to the database. Exiting now...', err);
-  process.exit();
+  console.log('Could not connect to the database. Exiting now...', err); //log connection error message if it exists
+  process.exit(); //close
 });
 
 app.use(json());
 
-app.use("/", routes);
+app.use("/", routes); // initiate routes
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port}`); //print port and connection success
 });

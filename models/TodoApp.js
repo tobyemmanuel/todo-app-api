@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const TodoSchema = mongoose.Schema({
+const TodoSchema = mongoose.Schema({ //create schema for the database table
     title: String,
     description: String
 }, {
