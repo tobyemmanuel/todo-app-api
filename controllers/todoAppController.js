@@ -165,7 +165,3 @@ exports.deleteTask = (req, res) => {
             });
         });
 }
-
-exports.deleteAllTasks = (req, res) => {
-    console.log("delete todos")
-}
